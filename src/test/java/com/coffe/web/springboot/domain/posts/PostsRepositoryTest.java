@@ -4,7 +4,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-//todo 96page
+//todo 96p
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PostsRepositoryTest {
