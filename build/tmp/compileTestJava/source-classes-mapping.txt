@@ -1,2 +1,0 @@
-com/coffe/web/springboot/web/HelloControllerTest.java
- com.coffe.web.springboot.web.HelloControllerTest
