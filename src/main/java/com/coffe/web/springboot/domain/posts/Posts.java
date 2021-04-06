@@ -10,7 +10,7 @@ import javax.persistence.*;
 @NoArgsConstructor // lombok : 생성자 자동 생성
 @Entity // 테이블과 링크될 클래스임을 명시 해주는 어노테이션
 public class Posts {
-    @Id // 해당 테이블의 PK필드임을 명시
+    @Id // 해당 테이블의 PK컬럼을 명시
     @GeneratedValue(strategy = GenerationType.IDENTITY) // pk의 생성 규칙을 나타냄
     private Long id;
 
@@ -20,7 +20,7 @@ public class Posts {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    private  String author;
+    private  String author; // VARCHAR 타입 255로 만들어짐, NULLABLE도 허용일듯?
 
     @Builder
     public Posts(String title, String content, String author) {
