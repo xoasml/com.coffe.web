@@ -1,75 +1,30 @@
 .menuBar {
+  height: 85px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+  color: white;
 }
 
-.menuBar-Btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 15px;
-  width: 150px;
-  height: 50px;
-  border-radius: 15px;
-  border: solid 2px black;
-  font-size: 40px;
-  font-weight: 600;
+.for-Border {
+}
+
+.menuName {
+  margin-left: 8px;
+  width: 180px;
+  height: 60px;
+  background-color: #303437;
+  color: #ffffff;
   cursor: pointer;
-  outline: none;
-  box-shadow: 1px 4px 0 rgb(0, 0, 0, 0.5);
-}
-
-.en-Center {
-  width: 140px;
-  height: 40;
-}
-
-.kr-Center {
-  font-size: 33px;
-  font-weight: 600;
-}
-
-.menuBar-Btn:active {
-  box-shadow: 1px 1px 0 rgb(0, 0, 0, 0.5);
+  display: flex;
+  font-family: "BenchNine", Arial, sans-serif;
+  font-size: 22px;
   position: relative;
-  top: 2px;
+  font-weight: 700;
+  border: solid 2px black;
 }
 
-a {
-  text-decoration-line: none;
-}
-
-a:hover {
-  animation-duration: 3s;
-  animation-name: rainbowLink;
-  animation-iteration-count: infinite;
-}
-
-@keyframes rainbowLink {
-  0% {
-    color: #ff2a2a;
-  }
-  15% {
-    color: #ff7a2a;
-  }
-  30% {
-    color: #ffc52a;
-  }
-  45% {
-    color: #43ff2a;
-  }
-  60% {
-    color: #2a89ff;
-  }
-  75% {
-    color: #202082;
-  }
-  90% {
-    color: #6b2aff;
-  }
-  100% {
-    color: #e82aff;
-  }
+.menuName:hover {
+  background-color: #c47135;
 }

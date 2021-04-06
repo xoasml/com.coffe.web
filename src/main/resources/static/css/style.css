@@ -3,5 +3,10 @@
 
 /*font*/
 body {
-  font-family: "Merriweather", serif;
+  font-family: "Dela Gothic One", cursive;
+  font-family: "Open Sans", sans-serif;
+}
+
+html {
+  background-color: gray;
 }
