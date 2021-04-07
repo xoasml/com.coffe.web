@@ -1,30 +1,49 @@
-.menuBar {
-  height: 85px;
+.menuBar-Frame {
   display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.menu-btns {
+  display: flex;
+  justify-content: start;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
 }
 
-.for-Border {
-}
-
-.menuName {
-  margin-left: 8px;
-  width: 180px;
-  height: 60px;
-  background-color: #303437;
-  color: #ffffff;
-  cursor: pointer;
+.menu-Btn-Frame {
   display: flex;
-  font-family: "BenchNine", Arial, sans-serif;
-  font-size: 22px;
-  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-size: 30px;
   font-weight: 700;
-  border: solid 2px black;
+  margin-right: 25px;
 }
 
-.menuName:hover {
-  background-color: #c47135;
+.menu-Btn-Frame a {
+  text-decoration: none;
+  color: white;
+  position: relative;
+}
+
+.menu-Btn-Frame a:before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #ffbc02;
+  width: 0%;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: 0.2s ease-in;
+}
+
+.menu-Btn-Frame a:hover:before {
+  width: 100%;
+}
+
+.user-sessions {
+  text-decoration: none;
+  color: white;
+  position: relative;
 }
