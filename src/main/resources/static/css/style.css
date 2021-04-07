@@ -2,6 +2,12 @@
 @import "screen/menuBar.css";
 
 /*font*/
-body {
-  font-family: "Merriweather", serif;
+@import url("https://fonts.googleapis.com/css2?family=BenchNine:wght@700&display=swap");
+
+html {
+  background-color: black;
+}
+
+h1 {
+  color: white;
 }
