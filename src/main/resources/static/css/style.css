@@ -1,11 +1,15 @@
 /*screen*/
 @import "screen/menuBar.css";
+@import "screen/floorLayout.css";
+@import "screen/board.css";
 
 /*font*/
 @import url("https://fonts.googleapis.com/css2?family=BenchNine:wght@700&display=swap");
 
 html {
+  height: 100%;
   background-color: black;
+  position: relative;
 }
 
 h1 {

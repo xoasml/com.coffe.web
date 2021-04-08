@@ -1,0 +1,25 @@
+.floor-Common-Layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 99%;
+  height: 70px;
+}
+
+.floor-Layout-Member {
+  margin-right: 10px;
+  color: white;
+}
+
+.js-clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  width: 99%;
+  height: 110px;
+}
