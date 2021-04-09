@@ -45,4 +45,11 @@ public class PostsService {
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
     }
+
+    @Transactional
+    public void delete (Long id) { //Warrper 클래스를 사용하는 이유는 만약에 해당 값이 없으면 null이 들어가야 하는데 원시타입(long)은 0이 들어가므로 데이터에 0이 들어있게 된다.
+        Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시물이 없습니다. id=" + id));
+
+        postsRepository.delete(posts);
+    }
 }
