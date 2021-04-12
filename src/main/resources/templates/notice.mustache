@@ -1,5 +1,36 @@
 {{>layout/header}}
-노티스!
+<h1>노티스!</h1>
 
+<div class="col-md-12">
+    <!-- 목록 출력 영역 -->
+    <table class="table table-hover table-horizontal table-bordered">
+        <thead class="thead-strong">
+        <tr>
+            <th class="board-Name" id="board-First">게시글번호</th>
+            <th class="board-Name">제목</th>
+            <th class="board-Name">작성자</th>
+            <th class="board-Name" id="board-Last">최종수정일</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#posts}}
+            <tr class="posting-Info">
+                <td class="posting-Color posting-Info-LineUp">{{ id }}</td>
+                <td id="posting-Link-Decoration">
+                    <a href="/posts/update/{{ id }}" class="posting-Color posting-Info-LineUp">{{ title }}</a>
+                </td>
+                <td class="posting-Color posting-Info-LineUp">{{ author }}</td>
+                <td class="posting-Color" id="posting-Date-LineUp">{{ modifiedDate }}</td>
+            </tr>
+        {{/posts}}
+        </tbody>
+    </table>
+    <!-- 글등록 버튼 -->
+    <div class="row">
+        <div class="col-md-6">
+            <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
+        </div>
+    </div>
+</div>
 
 {{>layout/footer}}
