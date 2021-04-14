@@ -2,24 +2,24 @@
 <h1>커피사세요</h1>
 <div class="col-md-12">
     <!-- 목록 출력 영역 -->
-    <table class="table table-hover table-horizontal table-bordered">
+    <table id="table-border" class="table table-hover table-horizontal table-bordered">
         <thead class="thead-strong">
-        <tr>
-            <th class="board-Name" id="board-First">게시글번호</th>
-            <th class="board-Name">제목</th>
-            <th class="board-Name">작성자</th>
-            <th class="board-Name" id="board-Last">최종수정일</th>
-        </tr>
+            <tr>
+                <th id="board-Num">No.</th>
+                <th id="board-Title">제목</th>
+                <th id="board-Autor">작성자</th>
+                <th id="board-Date">최종수정일</th>
+            </tr>
         </thead>
         <tbody id="tbody">
         {{#posts}}
             <tr class="posting-Info">
-                <td class="posting-Color posting-Info-LineUp">{{ id }}</td>
-                <td id="posting-Link-Decoration">
-                    <a href="/posts/update/{{ id }}" class="posting-Color posting-Info-LineUp">{{ title }}</a>
+                <td class="posting-Line" >{{ id }}</td>
+                <td class="posting-Line" id="posting-Link-Decoration" >
+                    <a href="/posts/update/{{ id }}">{{ title }}</a>
                 </td>
-                <td class="posting-Color posting-Info-LineUp">{{ author }}</td>
-                <td class="posting-Color" id="posting-Date-LineUp">{{ modifiedDate }}</td>
+                <td class="posting-Line" >{{ author }}</td>
+                <td class="posting-Line">{{ modifiedDate }}</td>
             </tr>
         {{/posts}}
         </tbody>

@@ -2,6 +2,8 @@
 @import "screen/menuBar.css";
 @import "screen/floorLayout.css";
 @import "screen/board.css";
+@import "screen/postSave.css";
+@import "screen/postUpdate.css";
 
 /*font*/
 @import url("https://fonts.googleapis.com/css2?family=BenchNine:wght@700&display=swap");

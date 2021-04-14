@@ -1,48 +1,54 @@
-.table {
-  border: solid 1px white;
-  margin: 100px auto 0px auto;
-}
-
-.board-Name {
-  background-color: #ffbc02;
-  color: black;
-  font-size: 20px;
-  font-weight: 700;
-  width: 250px;
-  height: 40px;
-  border-left: solid 2px rgba(255, 255, 255, 0.8);
-  border-right: solid 2px rgba(255, 255, 255, 0.8);
-  border-bottom: solid 2px rgba(255, 255, 255, 0.8);
-}
-
-#board-First {
+#board-Num {
+  width: 5%;
+  text-align: center;
+  color: white;
   border-left: none;
-}
-
-#board-Last {
   border-right: none;
 }
 
+#board-Title {
+  width: 70%;
+  text-align: center;
+  color: white;
+  border-left: none;
+  border-right: none;
+}
+
+#board-Autor {
+  width: 10%;
+  text-align: center;
+  color: white;
+  border-left: none;
+  border-right: none;
+}
+
+#board-Date {
+  width: 15%;
+  text-align: center;
+  color: white;
+  border-left: none;
+  border-right: none;
+}
+
+#table-border {
+  border-left: none;
+  border-right: none;
+}
+
+#posting-Link-Decoration {
+  border: 0;
+  outline: 0;
+}
+
+.posting-Line {
+  border: none !important;
+  height: 70px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  color: white !important;
+}
+
 .posting-Info {
-  /*현재 색깔이 안나옴.*/
-  border-top: solid 2px white;
-}
-
-.posting-Info-LineUp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#posting-Date-LineUp {
-  padding-left: 36px;
-}
-
-#posting-Link-Decoration a {
-  text-decoration: none;
-}
-
-.posting-Color {
-  background-color: thistle;
-  color: black;
+  border-top: solid 1px gray !important;
+  align-items: center !important;
 }
