@@ -22,12 +22,8 @@ public class menuContoller {
 
     @GetMapping("/notice")
     public String notice(Model model){
-        model.addAttribute("posts", postsService.findAllDesc());
+        model.addAttribute("posts", postsService.firstPageSelector());
 
-        SessionUser user = (SessionUser) httpSession.getAttribute("user");
-        if (user != null) {
-            model.addAttribute("userName", user.getName());
-        }
         return "notice";
     }
 }

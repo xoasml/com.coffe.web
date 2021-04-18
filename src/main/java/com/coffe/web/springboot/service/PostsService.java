@@ -40,8 +40,8 @@ public class PostsService {
     }
 
     @Transactional(readOnly = true)
-    public List<PostsListResponseDto> findAllDesc() {
-        return postsRepository.findAllDesc().stream()
+    public List<PostsListResponseDto> firstPageSelector() {
+        return postsRepository.firstPageSelector().stream()
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
     }
@@ -51,5 +51,10 @@ public class PostsService {
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시물이 없습니다. id=" + id));
 
         postsRepository.delete(posts);
+    }
+
+    @Transactional
+    public long count() {
+        return postsRepository.count();
     }
 }
