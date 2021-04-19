@@ -30,6 +30,16 @@
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
         </div>
     </div>
+    <div>
+        <div>
+            {{#postsPage}}
+                <a href="#">{{.}}</a>
+            {{/postsPage}}
+        </div>
+    </div>
+    <div>
+
+    </div>
 </div>
 
 {{>layout/footer}}

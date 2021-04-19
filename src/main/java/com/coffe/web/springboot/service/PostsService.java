@@ -2,6 +2,7 @@ package com.coffe.web.springboot.service;
 
 import com.coffe.web.springboot.domain.posts.Posts;
 import com.coffe.web.springboot.domain.posts.PostsRepository;
+import com.coffe.web.springboot.service.component.PostsComponent;
 import com.coffe.web.springboot.web.dto.PostsListResponseDto;
 import com.coffe.web.springboot.web.dto.PostsResponseDto;
 import com.coffe.web.springboot.web.dto.PostsSaveRequestDto;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 public class PostsService {
 
     private final PostsRepository postsRepository;
+    private final PostsComponent postsComponent;
 
     @Transactional
     public Long save(PostsSaveRequestDto reqeuestDto){
@@ -47,14 +50,17 @@ public class PostsService {
     }
 
     @Transactional
+    public List<Long> count() {
+        List<Long> pages = new ArrayList<>();
+       postsComponent.postsPage(postsRepository.count(),pages);
+        return pages;
+    }
+
+    @Transactional
     public void delete (Long id) { //Warrper 클래스를 사용하는 이유는 만약에 해당 값이 없으면 null이 들어가야 하는데 원시타입(long)은 0이 들어가므로 데이터에 0이 들어있게 된다.
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시물이 없습니다. id=" + id));
 
         postsRepository.delete(posts);
     }
 
-    @Transactional
-    public long count() {
-        return postsRepository.count();
-    }
 }

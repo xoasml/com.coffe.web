@@ -22,6 +22,7 @@ public class menuContoller {
 
     @GetMapping("/notice")
     public String notice(Model model){
+        model.addAttribute("postsPage",postsService.count());
         model.addAttribute("posts", postsService.firstPageSelector());
 
         return "notice";
