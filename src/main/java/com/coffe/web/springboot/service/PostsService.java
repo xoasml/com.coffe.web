@@ -2,6 +2,7 @@ package com.coffe.web.springboot.service;
 
 import com.coffe.web.springboot.domain.posts.Posts;
 import com.coffe.web.springboot.domain.posts.PostsRepository;
+import com.coffe.web.springboot.service.component.PostsComponent;
 import com.coffe.web.springboot.web.dto.PostsListResponseDto;
 import com.coffe.web.springboot.web.dto.PostsResponseDto;
 import com.coffe.web.springboot.web.dto.PostsSaveRequestDto;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 public class PostsService {
 
     private final PostsRepository postsRepository;
+    private final PostsComponent postsComponent;
 
     @Transactional
     public Long save(PostsSaveRequestDto reqeuestDto){
@@ -40,10 +43,17 @@ public class PostsService {
     }
 
     @Transactional(readOnly = true)
-    public List<PostsListResponseDto> findAllDesc() {
-        return postsRepository.findAllDesc().stream()
+    public List<PostsListResponseDto> firstPageSelector() {
+        return postsRepository.firstPageSelector().stream()
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public List<Long> count() {
+        List<Long> pages = new ArrayList<>();
+       postsComponent.postsPage(postsRepository.count(),pages);
+        return pages;
     }
 
     @Transactional
@@ -52,4 +62,5 @@ public class PostsService {
 
         postsRepository.delete(posts);
     }
+
 }
