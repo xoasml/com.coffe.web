@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 public class menuContoller {
 
     private final PostsService postsService;
-
     /*
      *  todo 여기는 화면로딩 만들기
      * */
@@ -25,5 +24,13 @@ public class menuContoller {
         model.addAttribute("posts", postsService.firstPageSelector());
 
         return "notice";
+    }
+
+    @GetMapping("/qna")
+    public String qna(Model model){
+        model.addAttribute("postsPage",postsService.count());
+        model.addAttribute("posts", postsService.firstPageSelector());
+
+        return "qna";
     }
 }
