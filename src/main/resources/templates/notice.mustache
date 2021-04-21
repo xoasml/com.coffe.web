@@ -25,21 +25,22 @@
         </tbody>
     </table>
     <!-- 글등록 버튼 -->
-    <div class="row">
-        <div class="col-md-6">
+
+    <div class="bottom-buttom">
+        <div class="bottom-page-buttom">
+            <div>
+                <a href="#"><</a>
+                {{#postsPage}}
+                    <a href="/notice/{{.}}">{{.}}</a>
+                {{/postsPage}}
+                <a href="#">></a>
+            </div>
+        </div>
+        <div>
             <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
         </div>
     </div>
-    <div>
-        <div>
-            {{#postsPage}}
-                <a href="#">{{.}}</a>
-            {{/postsPage}}
-        </div>
-    </div>
-    <div>
 
-    </div>
 </div>
 
 {{>layout/footer}}

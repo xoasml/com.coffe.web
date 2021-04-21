@@ -1,22 +1,31 @@
 package com.coffe.web.springboot.web;
 
+
 import com.coffe.web.springboot.service.PostsService;
-import com.coffe.web.springboot.web.dto.PostsResponseDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.servlet.http.HttpSession;
-
+@RequiredArgsConstructor
+@Controller
 public class noticeController {
-    /*
-     *  todo 상세보기 기능은 여기에 만들고
-     * */
+
+    private final PostsService postsService;
 
     @GetMapping("/noticeDetails")
     public String noticeDetails(){
         return "notice";
     }
+
+    @GetMapping("/notice/{page}")
+    public String notice(@PathVariable Long page, Model model){
+        model.addAttribute("postsPage", postsService.count());
+        model.addAttribute("posts", postsService.pageSelector(page));
+
+        return "notice";
+    }
+
 
 }

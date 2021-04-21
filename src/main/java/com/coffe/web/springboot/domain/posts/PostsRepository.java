@@ -16,7 +16,7 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
     List<Posts> firstPageSelector();
 
     //그외 페이지 클릭 시 SQL
-    @Query(value = "SELECT p.* FROM POSTS p WHERE ID BETWEEN :be AND :af ORDER BY p.id DESC"
+    @Query(value = "SELECT p.* FROM POSTS p WHERE ID BETWEEN :af AND :be ORDER BY p.id DESC"
             , nativeQuery = true)
-    List<Posts> pageSelector(@Param("be") int be, @Param("af") int af);
+    List<Posts> pageSelector(@Param("be") long be, @Param("af") long af);
 }

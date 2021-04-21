@@ -42,7 +42,7 @@
 
 .posting-Line {
   border: none !important;
-  height: 70px !important;
+  height: 60px !important;
   text-align: center !important;
   vertical-align: middle !important;
   color: white !important;
@@ -51,4 +51,14 @@
 .posting-Info {
   border-top: solid 1px gray !important;
   align-items: center !important;
+}
+
+.bottom-buttom {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bottom-page-buttom {
+  display: flex;
+  justify-content: center;
 }

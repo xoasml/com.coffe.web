@@ -13,7 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor // (롬복)
@@ -24,7 +26,7 @@ public class PostsService {
     private final PostsComponent postsComponent;
 
     @Transactional
-    public Long save(PostsSaveRequestDto reqeuestDto){
+    public Long save(PostsSaveRequestDto reqeuestDto) {
         return postsRepository.save(reqeuestDto.toEntity()).getId();
     }
 
@@ -36,7 +38,7 @@ public class PostsService {
         return id;
     }
 
-    public PostsResponseDto findById (Long id) {
+    public PostsResponseDto findById(Long id) {
         Posts entity = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id = " + id));
 
         return new PostsResponseDto(entity);
@@ -52,15 +54,32 @@ public class PostsService {
     @Transactional
     public List<Long> count() {
         List<Long> pages = new ArrayList<>();
-       postsComponent.postsPage(postsRepository.count(),pages);
+        postsComponent.getPostsPages(postsRepository.count(), pages);
         return pages;
     }
 
     @Transactional
-    public void delete (Long id) { //Warrper 클래스를 사용하는 이유는 만약에 해당 값이 없으면 null이 들어가야 하는데 원시타입(long)은 0이 들어가므로 데이터에 0이 들어있게 된다.
+    public void delete(Long id) { //Warrper 클래스를 사용하는 이유는 만약에 해당 값이 없으면 null이 들어가야 하는데 원시타입(long)은 0이 들어가므로 데이터에 0이 들어있게 된다.
         Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시물이 없습니다. id=" + id));
 
         postsRepository.delete(posts);
     }
 
+    @Transactional
+    public List<PostsListResponseDto> pageSelector(Long page) {
+        // 총 글의 갯수 그리고 가지고온 페이지의 수를 이용해서
+        // 지금 뽑아야되는 글의 영역을 설정해야됌
+        // 2번을 눌렀을 때 몇번째 부터 몇번째 글을 조회 해야 하는지
+        long cnt = postsRepository.count();
+        Map<String, Long> beAf = new HashMap<>();
+
+        postsComponent.getBeAf(page, cnt, beAf);
+
+        System.out.println(beAf.get("be"));
+        System.out.println(beAf.get("af"));
+
+        return postsRepository.pageSelector(beAf.get("be"), beAf.get("af")).stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
 }

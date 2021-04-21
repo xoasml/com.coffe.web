@@ -14,7 +14,6 @@ import javax.servlet.http.HttpSession;
 public class menuContoller {
 
     private final PostsService postsService;
-    private final HttpSession httpSession;
 
     /*
      *  todo 여기는 화면로딩 만들기
