@@ -70,13 +70,12 @@ public class PostsService {
         // 총 글의 갯수 그리고 가지고온 페이지의 수를 이용해서
         // 지금 뽑아야되는 글의 영역을 설정해야됌
         // 2번을 눌렀을 때 몇번째 부터 몇번째 글을 조회 해야 하는지
-        long cnt = postsRepository.count();
+
+        // 가장 중요한 재료, 클릭한 페이지와 총 글의 갯수
+        long cnt = postsRepository.count(); // 총 글의 갯수를 알아옴
+
         Map<String, Long> beAf = new HashMap<>();
-
         postsComponent.getBeAf(page, cnt, beAf);
-
-        System.out.println(beAf.get("be"));
-        System.out.println(beAf.get("af"));
 
         return postsRepository.pageSelector(beAf.get("be"), beAf.get("af")).stream()
                 .map(PostsListResponseDto::new)
