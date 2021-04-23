@@ -14,16 +14,20 @@ public class Posts {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // pk의 생성 규칙을 나타냄
     private Long id;
 
+    @Column(nullable = false)
+    private String postKind;
+
     @Column(length = 500, nullable = false) // 테이블의 컬럼을 나타냄, 기본값 외에 추가로 변경이 필요할때 사용 ex VARCHAR(255) 사이즈 500 으로 늘리고 싶다.
     private String title;
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
-    private  String author; // VARCHAR 타입 255로 만들어짐, NULLABLE도 허용일듯?
+    private String author; // VARCHAR 타입 255로 만들어짐, NULLABLE도 허용일듯?
 
     @Builder
-    public Posts(String title, String content, String author) {
+    public Posts(String title, String content, String author, String postKind) {
+        this.postKind = postKind;
         this.title = title;
         this.content = content;
         this.author = author;

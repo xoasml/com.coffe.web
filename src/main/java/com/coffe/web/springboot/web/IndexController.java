@@ -29,8 +29,9 @@ public class IndexController {
         return "index";
     }
 
-    @GetMapping("/posts/save")
-    public String postsSave() {
+    @GetMapping("/posts/save/{board}")
+    public String postsSave(@PathVariable String board, Model model) {
+        model.addAttribute("board", board);
         return "posts-save";
     }
 

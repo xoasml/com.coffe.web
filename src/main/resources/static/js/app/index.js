@@ -16,6 +16,7 @@ const main = {
 
   save: function () {
     const data = {
+      board: $("#board").val(),
       title: $("#title").val(),
       author: $("#author").val(),
       content: $("#content").val(),
